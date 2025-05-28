@@ -1,0 +1,96 @@
+package projects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class eShopping {
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		WebDriver driver=new EdgeDriver();
+		driver.get("http://www.automationpractice.pl/index.php");
+		 
+		Thread.sleep(1500);
+		WebElement submit=driver.findElement(By.className("login"));
+        submit.click();
+        Thread.sleep(1500);
+        WebElement submit1=driver.findElement(By.className("is_required"));
+        submit1.sendKeys("sid881200@gmail.com");
+        driver.findElement(By.className("icon-user")).click();
+        Thread.sleep(3500);
+        driver.findElement(By.id("id_gender1")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.id("customer_firstname")).sendKeys("siddharth");
+        Thread.sleep(1000);
+        driver.findElement(By.id("customer_lastname")).sendKeys("singh");
+        Thread.sleep(1000);
+        driver.findElement(By.id("passwd")).sendKeys("12345678");
+        Thread.sleep(1000);
+        
+        WebElement day=driver.findElement(By.id("days"));
+		 Select sc=new Select(day);
+		 sc.selectByValue("30");
+		 
+		 WebElement month=driver.findElement(By.id("months"));
+		 Select sc1=new Select(month);
+		 sc1.selectByValue("6");
+		  
+		 WebElement year=driver.findElement(By.id("years"));
+		 Select sc2=new Select(year);
+		 sc2.selectByValue("2002");
+        
+		 Thread.sleep(1000);
+		 driver.findElement(By.id("newsletter")).click();
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("//span[text()='Register']")).click();
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("//span[text()='Add my first address']")).click();
+		 Thread.sleep(1000);
+	     driver.findElement(By.id("address1")).sendKeys("sector3 Noida");
+	     Thread.sleep(1000);
+	     driver.findElement(By.id("city")).sendKeys("Noida");
+	     WebElement state=driver.findElement(By.id("id_state"));
+	     Select st=new Select(state);
+		 st.selectByValue("14");
+	     Thread.sleep(1000);
+	   driver.findElement(By.id("postcode")).sendKeys("00000");
+		        Thread.sleep(1000);
+		        WebElement countr=driver.findElement(By.id("id_country"));
+				 Select countryy=new Select(countr);
+				 countryy.selectByValue("21");
+				 Thread.sleep(1000);
+				 driver.findElement(By.id("phone")).sendKeys("9876543210");
+				 Thread.sleep(1000);
+				 driver.findElement(By.id("phone_mobile")).sendKeys("9988776655");
+				 driver.findElement(By.id("submitAddress")).click();
+				 Thread.sleep(1000);
+				 driver.findElement(By.xpath("//a[text()='Women']")).click();
+				 Thread.sleep(3000);
+				 driver.findElement(By.xpath("//img[@title='Blouse']")).click();
+				 Thread.sleep(3000);
+				 WebElement size=driver.findElement(By.id("group_1"));
+					Select sc5=new Select(size);
+					sc5.selectByValue("2");
+					Thread.sleep(3000);
+					driver.findElement(By.id("color_8")).click();
+					Thread.sleep(3000);
+					driver.findElement(By.xpath("//span[text()='Add to cart']")).click();
+					Thread.sleep(3000);
+					 driver.findElement(By.xpath("//a[@title='Proceed to checkout']")).click();
+					 Thread.sleep(3000);
+					 driver.findElement(By.xpath("//span[text()='Proceed to checkout']")).click();
+					 Thread.sleep(3000);
+					 driver.findElement(By.xpath("//span[text()='Proceed to checkout']")).click();
+					 Thread.sleep(3000);
+					 driver.findElement(By.id("cgv")).click();
+					 Thread.sleep(3000);
+					 driver.findElement(By.name("processCarrier")).click();
+					 Thread.sleep(3000);
+					 driver.findElement(By.xpath("//span[text()='(order processing will be longer)']")).click();
+					 Thread.sleep(3000);
+					 driver.findElement(By.xpath("//span[text()='I confirm my order']")).click();
+	}
+}
